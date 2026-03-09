@@ -79,13 +79,17 @@ portfolioFilters.forEach(filter => {
 });
 
 /*==================== SCROLL UP ====================*/
-const scrollUp = document.getElementById('scroll-up')
+const scrollUpButton = document.getElementById('scroll-up')
 
-function scrollUpShow(){
-    // When the scroll is higher than 560 viewport height, add the show-scroll class to the scroll-up tag
-    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+if(scrollUpButton) {
+    window.addEventListener('scroll', () => {
+        if(window.scrollY >= 560) {
+            scrollUpButton.classList.add('show-scroll')
+        } else {
+            scrollUpButton.classList.remove('show-scroll')
+        }
+    })
 }
-window.addEventListener('scroll', scrollUpShow)
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
@@ -136,13 +140,7 @@ window.addEventListener('scroll', revealScroll);
 // Run once on load
 setTimeout(revealScroll, 100);
 
-/*==================== SHOW SCROLL UP ====================*/ 
-function scrollUp(){
-    const scrollUp = document.getElementById('scroll-up');
-    // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
-    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
-}
-window.addEventListener('scroll', scrollUp)
+
 
 /*==================== DARK LIGHT THEME ====================*/ 
 const themeButton = document.getElementById('theme-button')
