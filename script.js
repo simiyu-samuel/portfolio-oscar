@@ -30,22 +30,30 @@ function linkAction(){
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*==================== ACCORDION SKILLS ====================*/
-const skillsContent = document.getElementsByClassName('skills__content'),
-      skillsHeader = document.querySelectorAll('.skills__header')
+const skillsHeaders = document.querySelectorAll('.skills__header')
 
-function toggleSkills(){
-    let itemClass = this.parentNode.className
-
-    for(i = 0; i < skillsContent.length; i++){
-        skillsContent[i].className = 'skills__content skills__close'
-    }
-    if(itemClass === 'skills__content skills__close'){
-        this.parentNode.className = 'skills__content skills__open'
-    }
-}
-
-skillsHeader.forEach((el) =>{
-    el.addEventListener('click', toggleSkills)
+skillsHeaders.forEach(header => {
+    header.addEventListener('click', function(){
+        const skillsItem = this.parentElement
+        
+        // Get all skills content items
+        const allSkillsItems = document.querySelectorAll('.skills__content')
+        
+        // Toggle current item
+        const isOpen = skillsItem.classList.contains('skills__open')
+        
+        // Close all first
+        allSkillsItems.forEach(item => {
+            item.classList.remove('skills__open')
+            item.classList.add('skills__close')
+        })
+        
+        // Open clicked item if it was closed
+        if(!isOpen){
+            skillsItem.classList.remove('skills__close')
+            skillsItem.classList.add('skills__open')
+        }
+    })
 })
 
 /*==================== PORTFOLIO FILTER ====================*/
