@@ -70,6 +70,15 @@ portfolioFilters.forEach(filter => {
     });
 });
 
+/*==================== SCROLL UP ====================*/
+const scrollUp = document.getElementById('scroll-up')
+
+function scrollUpShow(){
+    // When the scroll is higher than 560 viewport height, add the show-scroll class to the scroll-up tag
+    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUpShow)
+
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 
@@ -100,6 +109,24 @@ function scrollHeader(){
     if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
+
+/*==================== SCROLL REVEAL ANIMATIONS ====================*/
+const revealElements = document.querySelectorAll('.section__title, .section__subtitle, .about__img, .about__data, .skills__content, .services__content, .portfolio__card, .contact__information, .footer__container');
+
+const revealScroll = () => {
+    revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if(elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('scroll-reveal');
+        }
+    });
+};
+
+window.addEventListener('scroll', revealScroll);
+// Run once on load
+setTimeout(revealScroll, 100);
 
 /*==================== SHOW SCROLL UP ====================*/ 
 function scrollUp(){

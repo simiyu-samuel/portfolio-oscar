@@ -881,3 +881,145 @@ img {
         margin-top: 4.5rem;
     }
 }
+
+/* --- ANIMATIONS --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Animation Classes */
+.scroll-reveal {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.scroll-reveal-delay-1 {
+    animation-delay: 0.1s;
+}
+
+.scroll-reveal-delay-2 {
+    animation-delay: 0.2s;
+}
+
+.scroll-reveal-delay-3 {
+    animation-delay: 0.3s;
+}
+
+/* Section animations */
+.section__title {
+    animation: slideDown 0.6s ease-out;
+}
+
+.section__subtitle {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.home__title {
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.home__subtitle {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.home__description {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.home__data .button {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.button {
+    transition: all 0.3s ease;
+}
+
+.button:hover .button__icon {
+    transform: translateX(0.5rem);
+}
+
+/* Portfolio card animations */
+.portfolio__card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio__card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Service card animations */
+.services__content {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services__content:hover {
+    transform: translateY(-5px);
+}
+
+/* Skill bars animation */
+.skills__percentage {
+    transition: width 0.6s ease;
+}
+
+/* Social icon animations */
+.home__social-icon,
+.footer__social {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.home__social-icon:hover,
+.footer__social:hover {
+    transform: translateY(-5px);
+}
+
+/* Link hover animations */
+.nav__link,
+.footer__link {
+    transition: color 0.3s ease;
+}
+
+.nav__link:hover,
+.footer__link:hover {
+    transform: translateY(-2px);
+}
